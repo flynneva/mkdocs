@@ -503,6 +503,7 @@ class PluginCollection(dict, MutableMapping[str, BasePlugin]):
         if events:
             log.debug(f'Running {len(events)} `{name}` events')
         for method in events:
+            log.debug(dir(method))
             if pass_item:
                 result = method(item, **kwargs)
             else:
